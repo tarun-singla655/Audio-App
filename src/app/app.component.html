@@ -1,0 +1,47 @@
+<header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark pink scrolling-navbar">
+        <a class="navbar-brand m-auto" href="#" ><strong>Audio App</strong></a>
+        <div class="navbar-brand m-auto">
+            <strong><span><i class="fas fa-volume-up pr-2"></i></span>
+                   <input type="range" min="0" max="1" step="0.01" value="0.5" (input)="setVolume($event)">
+            </strong>
+        </div>
+    </nav>
+
+</header>
+<br>
+<app-search></app-search>
+
+<div class="container-fluid pt-5" style="margin-bottom: 50%;">
+    <!-- <ul  class="col-12 text-center"  >
+        <a><li class="list-group-item"></li></a>
+    </ul> -->
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-3"  *ngFor="let file of files">
+            <a (click)="openFile(file.url)">
+                <div class="card m-1 text-center">
+                    <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap" >
+                    <div class="card-body">
+                        <h5 class="card-title p-3">{{file.name}}</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<footer class="page-footer fixed-bottom pink text-center" style="height: 20vh;">
+  
+    <div class="pt-5">
+        <a><span class="mr-5" (click)="pause()"><i class="fas fa-pause"></i></span></a>
+        <a><span class="" (click)="stop()"><i class="fas fa-stop"></i></span></a>
+        <br>
+        <input type="range" min="0" max="{{currentTime}}" [value]="seek" (input)="setSeekTo($event)" style="width: 89vw;">
+        <span class="pt-3" style="float: left;">{{currentTime}}</span>
+        <span class="pt-3" style="float: right;">{{duration}}</span>
+        <br>
+    </div>
+  
+</footer>
